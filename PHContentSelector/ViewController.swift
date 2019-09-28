@@ -130,9 +130,11 @@ class ViewController: UIViewController {
     }
     
     func selectFirst(){
-        let asset = asset_list[0]
-        currentAsset = asset
-        set_image(asset: asset)
+        if asset_list.count > 0{
+            let asset = asset_list[0]
+            currentAsset = asset
+            set_image(asset: asset)
+        }
     }
     
     func prepareData() {
@@ -177,13 +179,13 @@ extension ViewController {
     
     // カメラロールへのアクセスが拒否されている場合のアラート
     fileprivate func showDeniedAlert() {
-        let alert: UIAlertController = UIAlertController(title: "エラー",
-                                                         message: "「写真」へのアクセスが拒否されています。設定より変更してください。",
+        let alert: UIAlertController = UIAlertController(title: "Error",
+                                                         message: "Allow this application to have access Photo Library",
                                                          preferredStyle: .alert)
-        let cancel: UIAlertAction = UIAlertAction(title: "キャンセル",
+        let cancel: UIAlertAction = UIAlertAction(title: "Cancel",
                                                   style: .cancel,
                                                   handler: nil)
-        let ok: UIAlertAction = UIAlertAction(title: "設定画面へ",
+        let ok: UIAlertAction = UIAlertAction(title: "OK",
                                               style: .default,
                                               handler: { [weak self] (action) -> Void in
                                                 guard let wself = self else {
