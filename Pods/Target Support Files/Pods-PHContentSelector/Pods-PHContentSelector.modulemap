@@ -1,0 +1,6 @@
+framework module Pods_PHContentSelector {
+  umbrella header "Pods-PHContentSelector-umbrella.h"
+
+  export *
+  module * { export * }
+}
